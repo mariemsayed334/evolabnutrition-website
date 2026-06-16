@@ -1,5 +1,6 @@
 import { ProductCard } from '@/components/product-card';
 import { products } from '@/data/products';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Leaf, Award, Zap } from 'lucide-react';
 
@@ -34,13 +35,15 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="relative h-96 sm:h-full rounded-xl overflow-hidden bg-muted">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">💪</div>
-                  <p className="text-foreground font-semibold">Premium Quality</p>
-                </div>
-              </div>
+            <div className="relative h-96 sm:h-full overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10" />
+              <Image
+                src="/images/evolab all.jpg"
+                alt="evolabnutrition products"
+                fill
+                className="object-contain p-4 sm:p-6"
+                priority
+              />
             </div>
           </div>
         </div>

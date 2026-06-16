@@ -12,8 +12,7 @@ const contactItems = [
   },
   {
     icon: MapPin,
-    title: 'Official distributor in Iraq',
-    description: 'Fitness City',
+    title: 'Official distributor in Iraq Fitness City',
     href: '#location',
   },
 ];
@@ -49,14 +48,8 @@ export default function ContactPage() {
                   <Icon className="h-7 w-7 text-secondary" />
                 </div>
                 <h2 className="text-xl font-bold text-foreground">{item.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
                 {item.href === '#location' ? (
-                  <div id="location" className="mt-6 space-y-2">
-                    <p className="font-semibold text-foreground">Fitness City</p>
-                    <p className="text-sm text-muted-foreground">Iraq</p>
-                  </div>
+                  <div id="location" className="mt-4 h-2" />
                 ) : (
                   <a
                     href={item.href}
