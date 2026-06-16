@@ -221,7 +221,7 @@ export const products: Product[] = [
     flavors: [
       {
         id: 'f10-1',
-        name: 'Capsule',
+        name: 'Mass Gainer',
         image: '/images/mass evo.jpg',
         image2: '/images/mass.jpg',
       },

@@ -12,27 +12,47 @@ interface ImageGalleryProps {
 
 export function ImageGallery({ flavors, selectedFlavor, onSelectFlavor }: ImageGalleryProps) {
   const [imageError, setImageError] = useState(false);
+  const hasSecondaryImage = Boolean(selectedFlavor.image2);
 
   useEffect(() => {
     setImageError(false);
   }, [selectedFlavor.id]);
 
   return (
-    <div className="bg-muted rounded-xl overflow-hidden">
-      <div className="relative w-full aspect-square bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center p-8">
-        {imageError ? (
-          <div className="text-center">
-            <div className="text-4xl mb-2">📦</div>
-            <p className="text-muted-foreground">Product Image</p>
+    <div className="bg-muted rounded-xl overflow-hidden border border-border">
+      <div
+        className={`gap-4 bg-gradient-to-br from-muted to-muted/50 p-4 sm:p-6 ${
+          hasSecondaryImage ? 'grid md:grid-cols-2' : 'relative'
+        }`}
+      >
+        <div className="relative aspect-square overflow-hidden rounded-lg bg-background/50">
+          {imageError ? (
+            <div className="flex h-full items-center justify-center text-center">
+              <div>
+                <div className="text-4xl mb-2">📦</div>
+                <p className="text-muted-foreground">Product Image</p>
+              </div>
+            </div>
+          ) : (
+            <Image
+              src={encodeURI(selectedFlavor.image)}
+              alt={selectedFlavor.name}
+              fill
+              className="object-contain p-4 sm:p-5"
+              onError={() => setImageError(true)}
+            />
+          )}
+        </div>
+
+        {hasSecondaryImage && !imageError && (
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-background/50">
+            <Image
+              src={encodeURI(selectedFlavor.image2 as string)}
+              alt={`${selectedFlavor.name} alternate view`}
+              fill
+              className="object-contain p-4 sm:p-5"
+            />
           </div>
-        ) : (
-          <Image
-            src={encodeURI(selectedFlavor.image)}
-            alt={selectedFlavor.name}
-            fill
-            className="object-contain"
-            onError={() => setImageError(true)}
-          />
         )}
       </div>
 
