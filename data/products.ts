@@ -221,7 +221,7 @@ export const products: Product[] = [
       {
         id: 'f10-1',
         name: 'Capsule',
-        image: 'https://images.unsplash.com/photo-1618454844890-14e3a2e0ff3f?w=600&h=600&fit=crop',
+        image: '/images/mass.jpg',
       },
     ],
    keyBenefits: ['Supports solid weight gain and muscle mass & size.', 'Boosts strength and endurance naturally.', ' Promotes muscle building and testosterone support.', 'High protein and carb blend ideal for hard gainers and athletes looking to increase mass.'],
