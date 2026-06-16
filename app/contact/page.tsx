@@ -1,15 +1,8 @@
 'use client';
 
-import { MapPin, MessageCircle, Phone } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 
 const contactItems = [
-  {
-    icon: MessageCircle,
-    title: 'WhatsApp',
-    description: 'Fast support for product questions and order help.',
-    actionLabel: 'Start Chat',
-    href: 'https://wa.me/9647702359478',
-  },
   {
     icon: Phone,
     title: 'Call Us',
@@ -21,7 +14,6 @@ const contactItems = [
     icon: MapPin,
     title: 'Official distributor in Iraq',
     description: 'Fitness City',
-    actionLabel: 'Iraq',
     href: '#location',
   },
 ];
@@ -38,13 +30,13 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Reach out through WhatsApp or call us directly for product support and distributor inquiries.
+            Reach out by phone or visit our location for product support and distributor inquiries.
           </p>
         </div>
       </section>
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
           {contactItems.map((item) => {
             const Icon = item.icon;
 
@@ -89,18 +81,10 @@ export default function ContactPage() {
                 Need a quick response?
               </h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                WhatsApp is the fastest way to reach us for product availability, order questions, and distributor support.
+                Call us directly for product availability, order questions, and distributor support.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-              <a
-                href="https://wa.me/9647702359478"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-secondary"
-              >
-                Message on WhatsApp
-              </a>
               <a
                 href="tel:+9647702359478"
                 className="inline-flex items-center justify-center rounded-lg border-2 border-border px-6 py-3 font-semibold text-foreground transition-colors hover:bg-muted"
