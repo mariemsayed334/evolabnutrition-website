@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { CheckCircle, Users, Award, Leaf } from 'lucide-react';
 
 export default function AboutPage() {
@@ -45,11 +46,14 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative h-96 bg-muted rounded-xl overflow-hidden flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-6xl mb-4">🎯</div>
-                <p className="text-foreground font-semibold">Quality Driven</p>
-              </div>
+            <div className="relative h-96 overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+              <Image
+                src="/images/evolab all.jpg"
+                alt="evolabnutrition product collection"
+                fill
+                className="object-contain p-4 sm:p-6"
+                priority
+              />
             </div>
           </div>
         </div>
