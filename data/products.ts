@@ -2,6 +2,7 @@ export interface Flavor {
   id: string;
   name: string;
   image: string;
+  image2?: string;
 }
 
 export interface Product {
@@ -221,7 +222,8 @@ export const products: Product[] = [
       {
         id: 'f10-1',
         name: 'Capsule',
-        image: '/images/mass.jpg',
+        image: '/images/mass evo.jpg',
+        image2: '/images/mass.jpg',
       },
     ],
    keyBenefits: ['Supports solid weight gain and muscle mass & size.', 'Boosts strength and endurance naturally.', ' Promotes muscle building and testosterone support.', 'High protein and carb blend ideal for hard gainers and athletes looking to increase mass.'],
