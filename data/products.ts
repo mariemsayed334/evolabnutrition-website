@@ -84,6 +84,11 @@ export const products: Product[] = [
         name: 'FRUIT BURST',
         image: '/images/EAA 1.png',
       },
+      {
+        id: 'f3-2',
+        name: 'Grape',
+        image: '/images/EAA 2.png',
+      },
     ],
     keyBenefits: ['Provides all essential amino acids to support muscle protein synthesis.', 'Glutamine supports muscle recovery and immune function.', 'Helps prevent muscle breakdown during and after training.', 'Promotes hydration and endurance during workouts.'],
     howToUse: 'Mix one scoop with 300-400ml of cold water. Consume during or after your workout. Can also be taken between meals to support amino acid levels throughout the day.',

@@ -12,19 +12,21 @@ interface ImageGalleryProps {
 
 export function ImageGallery({ flavors, selectedFlavor, onSelectFlavor }: ImageGalleryProps) {
   const [imageError, setImageError] = useState(false);
+  const [showSecondaryImage, setShowSecondaryImage] = useState(false);
   const hasSecondaryImage = Boolean(selectedFlavor.image2);
+  const activeImage = hasSecondaryImage && showSecondaryImage ? selectedFlavor.image2 : selectedFlavor.image;
+  const activeAlt = hasSecondaryImage && showSecondaryImage
+    ? `${selectedFlavor.name} alternate view`
+    : selectedFlavor.name;
 
   useEffect(() => {
     setImageError(false);
+    setShowSecondaryImage(false);
   }, [selectedFlavor.id]);
 
   return (
     <div className="bg-muted rounded-xl overflow-hidden border border-border">
-      <div
-        className={`gap-4 bg-gradient-to-br from-muted to-muted/50 p-4 sm:p-6 ${
-          hasSecondaryImage ? 'grid md:grid-cols-2' : 'relative'
-        }`}
-      >
+      <div className="relative bg-gradient-to-br from-muted to-muted/50 p-4 sm:p-6">
         <div className="relative aspect-square overflow-hidden rounded-lg bg-background/50">
           {imageError ? (
             <div className="flex h-full items-center justify-center text-center">
@@ -35,25 +37,25 @@ export function ImageGallery({ flavors, selectedFlavor, onSelectFlavor }: ImageG
             </div>
           ) : (
             <Image
-              src={encodeURI(selectedFlavor.image)}
-              alt={selectedFlavor.name}
+              src={encodeURI(activeImage as string)}
+              alt={activeAlt}
               fill
-              className="object-contain p-4 sm:p-5"
+              className="object-contain p-4 sm:p-5 transition-opacity duration-300"
               onError={() => setImageError(true)}
             />
           )}
-        </div>
 
-        {hasSecondaryImage && !imageError && (
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-background/50">
-            <Image
-              src={encodeURI(selectedFlavor.image2 as string)}
-              alt={`${selectedFlavor.name} alternate view`}
-              fill
-              className="object-contain p-4 sm:p-5"
-            />
-          </div>
-        )}
+          {hasSecondaryImage && !imageError && (
+            <button
+              type="button"
+              onClick={() => setShowSecondaryImage((current) => !current)}
+              className="absolute bottom-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white shadow-lg transition-transform hover:scale-105"
+              aria-label={showSecondaryImage ? 'Show primary image' : 'Show secondary image'}
+            >
+              {showSecondaryImage ? '‹' : '›'}
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Thumbnail Navigation */}
